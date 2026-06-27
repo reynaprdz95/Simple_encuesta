@@ -1,1 +1,2 @@
-window.SURVEY_WEBHOOK_URL = "PEGAR_AQUI_WEBHOOK_DE_GOOGLE_APPS_SCRIPT";
+window.SURVEY_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbzCucTz2ZVjJnyMOzaxgZYaZDtvhuG2AoFwAcbgRUIYMe0wTRtK0wlUJ5Dx4nUPfwSanw/exec";

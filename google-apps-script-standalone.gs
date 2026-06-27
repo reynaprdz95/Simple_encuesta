@@ -1,3 +1,4 @@
+const SPREADSHEET_ID = "";
 const SHEET_NAME = "Respuestas";
 const NOTIFICATION_EMAIL = "reynaprdz95@gmail.com";
 
@@ -31,14 +32,16 @@ function doPost(event) {
   let savedToSheet = false;
   let sheetError = "";
 
-  try {
-    const sheet = getSheet();
-    const row = HEADERS.map((header) => payload[header] ?? "");
+  if (SPREADSHEET_ID) {
+    try {
+      const sheet = getSheet();
+      const row = HEADERS.map((header) => payload[header] ?? "");
 
-    sheet.appendRow(row);
-    savedToSheet = true;
-  } catch (error) {
-    sheetError = error.message;
+      sheet.appendRow(row);
+      savedToSheet = true;
+    } catch (error) {
+      sheetError = error.message;
+    }
   }
 
   if (!savedToSheet) {
@@ -56,7 +59,7 @@ function doPost(event) {
 }
 
 function getSheet() {
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   let sheet = spreadsheet.getSheetByName(SHEET_NAME);
 
   if (!sheet) {

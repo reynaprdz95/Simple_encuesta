@@ -55,6 +55,8 @@ El POST envía un JSON serializado con `Content-Type: text/plain;charset=utf-8` 
 
 Cuando la encuesta se envíe, Apps Script creará una pestaña llamada `Respuestas` y agregará las columnas necesarias.
 
+Si Google Drive no permite crear o editar hojas por falta de almacenamiento, el script puede enviar las respuestas por email a `reynaprdz95@gmail.com` como respaldo.
+
 ## Cómo publicar en GitHub Pages
 
 1. Crea un repositorio público en GitHub llamado `Simple_encuesta`.
