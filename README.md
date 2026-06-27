@@ -28,7 +28,7 @@ Ejemplo local:
 index.html?codigo=SIMPLE123&nombre=Ana&asesor=Reyna&tecnico=Juan&zona=Interlomas
 ```
 
-Si `codigo` viene en la URL, se muestra precargado. Si no viene, el formulario solicita el código antes de iniciar.
+Si `codigo` viene en la URL, se muestra precargado. Si no viene, el formulario solicita el nombre del cliente antes de iniciar.
 
 ## Dónde configurar el webhook
 

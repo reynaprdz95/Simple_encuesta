@@ -60,6 +60,7 @@
     currentQuestion: 0,
     answers: {},
     codigo: leadData.codigo,
+    nombre: leadData.nombre,
   };
 
   const startScreen = document.querySelector("#start-screen");
@@ -99,29 +100,34 @@
   }
 
   function setupInitialCode() {
-    if (!leadData.codigo) {
+    if (!leadData.codigo && !leadData.nombre) {
       return;
     }
 
+    const label = leadData.codigo ? "Código precargado" : "Nombre precargado";
+    const value = leadData.codigo || leadData.nombre;
+
     clientCodePanel.classList.add("is-prefilled");
     clientCodePanel.innerHTML = [
-      '<span class="input-label">Código precargado</span>',
-      `<span class="prefilled-code">${escapeHtml(leadData.codigo)}</span>`,
+      `<span class="input-label">${label}</span>`,
+      `<span class="prefilled-code">${escapeHtml(value)}</span>`,
     ].join("");
   }
 
   function startSurvey() {
-    const typedCode = leadData.codigo || clientCodeInput.value.trim();
+    const typedCode = leadData.codigo;
+    const typedName = leadData.nombre || clientCodeInput.value.trim();
 
-    if (!typedCode) {
-      startError.textContent = "Por favor escribe tu código de cliente para continuar.";
+    if (!typedCode && !typedName) {
+      startError.textContent = "Por favor escribe tu nombre para continuar.";
       clientCodeInput.focus();
       return;
     }
 
     state.codigo = typedCode;
+    state.nombre = typedName;
     startError.textContent = "";
-    codeChip.textContent = `Código: ${state.codigo}`;
+    codeChip.textContent = state.codigo ? `Código: ${state.codigo}` : `Cliente: ${state.nombre}`;
     showScreen(surveyScreen);
     renderQuestion();
   }
@@ -238,7 +244,7 @@
     const payload = {
       fecha_respuesta: new Date().toISOString(),
       codigo: state.codigo,
-      nombre: leadData.nombre,
+      nombre: state.nombre,
       asesor: leadData.asesor,
       tecnico: leadData.tecnico,
       zona: leadData.zona,
