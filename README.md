@@ -32,16 +32,45 @@ Si `codigo` viene en la URL, se muestra precargado. Si no viene, el formulario s
 
 ## Dónde configurar el webhook
 
-En `encuesta-instalacion.js`, reemplaza el placeholder:
+En `config.js`, reemplaza el placeholder:
 
 ```js
-const SURVEY_WEBHOOK_URL =
-  window.SURVEY_WEBHOOK_URL || "PEGAR_AQUI_WEBHOOK_DE_GOOGLE_APPS_SCRIPT";
+window.SURVEY_WEBHOOK_URL = "PEGAR_AQUI_WEBHOOK_DE_GOOGLE_APPS_SCRIPT";
 ```
 
-También puedes definir `window.SURVEY_WEBHOOK_URL` antes de cargar `encuesta-instalacion.js` si el hosting o backend lo inyecta.
-
 El POST envía un JSON serializado con `Content-Type: text/plain;charset=utf-8` y `mode: "no-cors"`, útil para Google Apps Script y webhooks sencillos. El payload incluye `requiere_seguimiento`.
+
+## Cómo recibir respuestas en Google Sheets
+
+1. Crea una hoja nueva en Google Sheets.
+2. Entra a `Extensiones > Apps Script`.
+3. Borra el código inicial y pega el contenido de `google-apps-script.gs`.
+4. Guarda el proyecto.
+5. Selecciona `Implementar > Nueva implementación`.
+6. Tipo: `Aplicación web`.
+7. Ejecutar como: `Yo`.
+8. Quién tiene acceso: `Cualquier persona`.
+9. Copia la URL de la aplicación web.
+10. Pega esa URL en `config.js`.
+
+Cuando la encuesta se envíe, Apps Script creará una pestaña llamada `Respuestas` y agregará las columnas necesarias.
+
+## Cómo publicar en GitHub Pages
+
+1. Crea un repositorio público en GitHub llamado `Simple_encuesta`.
+2. Sube todos los archivos de esta carpeta.
+3. En GitHub, entra a `Settings > Pages`.
+4. En `Build and deployment`, selecciona:
+   - Source: `Deploy from a branch`
+   - Branch: `main`
+   - Folder: `/root`
+5. Guarda la configuración.
+
+La URL final quedará similar a:
+
+```text
+https://TU_USUARIO.github.io/Simple_encuesta/
+```
 
 ## Ejemplo de URL para WhatsApp
 
