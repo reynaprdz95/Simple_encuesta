@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Encuesta de satisfacción de servicio | SIMPLE by Junghanns</title>
+    <meta
+      name="description"
+      content="Encuesta corta para medir la satisfacción del servicio SIMPLE by Junghanns."
+    />
+    <link rel="icon" href="./assets/simple/simple-leaf-watermark.png" />
+    <link rel="stylesheet" href="./encuesta-instalacion.css" />
+  </head>
+  <body>
+    <main class="survey-shell" aria-live="polite">
+      <section class="survey-card screen screen--active" id="start-screen" aria-labelledby="intro-title">
+        <img
+          class="simple-logo"
+          src="./assets/simple/simple-logo.png"
+          alt="SIMPLE by Junghanns"
+          width="974"
+          height="540"
+        />
+
+        <div class="intro-copy">
+          <h1 id="intro-title">¿Cómo ha sido tu experiencia con SIMPLE?</h1>
+          <p class="lead">Tu opinión nos ayuda a mantener un servicio sencillo, confiable y de gran calidad.</p>
+          <p>Son solo 5 preguntas y te tomará menos de 1 minuto.</p>
+        </div>
+
+        <div class="client-code-panel" id="client-code-panel">
+          <label class="input-label" for="client-code-input">Nombre de cliente</label>
+          <input
+            class="text-input"
+            id="client-code-input"
+            name="nombre"
+            autocomplete="name"
+            inputmode="text"
+            placeholder="Ej. Ana Pérez"
+          />
+          <p class="field-hint">Lo usaremos únicamente para ubicar tu servicio.</p>
+        </div>
+
+        <p class="form-error" id="start-error" role="alert"></p>
+
+        <button class="primary-button" id="start-button" type="button">
+          Comenzar encuesta
+        </button>
+      </section>
+
+      <section class="survey-card screen" id="survey-screen" aria-labelledby="question-title">
+        <div class="survey-topbar">
+          <div>
+            <p class="progress-label" id="progress-label">Pregunta 1 de 5</p>
+            <div class="progress-track" aria-hidden="true">
+              <span class="progress-fill" id="progress-fill"></span>
+            </div>
+          </div>
+          <span class="code-chip" id="code-chip"></span>
+        </div>
+
+        <form id="survey-form" novalidate>
+          <fieldset class="question-fieldset">
+            <legend id="question-title" tabindex="-1"></legend>
+            <p class="question-help" id="question-help"></p>
+            <div class="options-grid" id="options-grid"></div>
+            <div class="optional-comment" id="optional-comment">
+              <label class="input-label" for="improvement-comment">
+                ¿Qué podríamos mejorar para que tu experiencia con SIMPLE sea aún mejor?
+              </label>
+              <p class="field-hint">
+                Tus comentarios son fundamentales para mejorar nuestro servicio y seguir cuidando cada detalle.
+              </p>
+              <textarea
+                class="text-input textarea-input"
+                id="improvement-comment"
+                name="comentario_mejora"
+                rows="4"
+                placeholder="Cuéntanos qué podríamos hacer mejor."
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <p class="form-error" id="question-error" role="alert"></p>
+
+          <div class="form-actions">
+            <button class="secondary-button" id="back-button" type="button">Atrás</button>
+            <button class="primary-button" id="next-button" type="button">Continuar</button>
+            <button class="primary-button" id="submit-button" type="submit">Enviar respuestas</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="survey-card thank-you screen" id="thanks-screen" aria-labelledby="thanks-title">
+        <img
+          class="simple-logo simple-logo--center"
+          src="./assets/simple/simple-logo.png"
+          alt="SIMPLE by Junghanns"
+          width="974"
+          height="540"
+        />
+        <h1 id="thanks-title">Gracias por compartir tu opinión 💧</h1>
+        <p>
+          Tu experiencia nos ayuda a mejorar el servicio para que más personas puedan disfrutar agua
+          purificada en casa, sin complicaciones.
+        </p>
+        <button class="secondary-button" id="restart-button" type="button">Volver al inicio</button>
+      </section>
+    </main>
+
+    <script src="./config.js"></script>
+    <script src="./satisfaccion-servicio.js" defer></script>
+  </body>
+</html>

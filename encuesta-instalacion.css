@@ -292,6 +292,10 @@ p {
   gap: 0.45rem;
 }
 
+.options-grid.is-scale-wide {
+  grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+}
+
 .option-input {
   position: absolute;
   width: 1px;
