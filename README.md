@@ -61,7 +61,7 @@ El POST envía un JSON serializado con `Content-Type: text/plain;charset=utf-8` 
 9. Copia la URL de la aplicación web.
 10. Pega esa URL en `config.js`.
 
-Cuando la encuesta de contratación e instalación se envíe, Apps Script creará una pestaña llamada `Respuestas` y agregará las columnas necesarias.
+Cuando la encuesta de contratación e instalación se envíe, Apps Script creará una pestaña llamada `Respuestas` y agregará las columnas necesarias, incluyendo `informacion_post_instalacion`.
 
 Cuando la encuesta de satisfacción de servicio se envíe, Apps Script usará el campo `tipo_encuesta: "satisfaccion_servicio"` y creará o actualizará una pestaña llamada `Satisfaccion Servicio`.
 

@@ -44,6 +44,18 @@
       type: "choice",
       options: ["Excelente", "Buena", "Regular", "Mala"],
     },
+    {
+      key: "informacion_post_instalacion",
+      title: "Durante la instalación, ¿te entregaron y explicaron la información para usar SIMPLE?",
+      help: "Manual de usuario, uso de la app y contacto para cualquier problema o duda sobre tu suscripción.",
+      type: "choice",
+      options: [
+        "Sí, me explicaron todo claramente",
+        "Sí, pero me quedaron algunas dudas",
+        "Me entregaron información parcial",
+        "No me entregaron esa información",
+      ],
+    },
   ];
 
   const params = new URLSearchParams(window.location.search);
@@ -254,6 +266,7 @@
       atencion_contratacion: state.answers.atencion_contratacion,
       agendamiento_instalacion: state.answers.agendamiento_instalacion,
       calificacion_instalacion: state.answers.calificacion_instalacion,
+      informacion_post_instalacion: state.answers.informacion_post_instalacion,
       comentario_mejora: improvementComment.value.trim(),
       user_agent: window.navigator.userAgent,
       url_origen: window.location.href,
@@ -269,7 +282,12 @@
       ["Poco clara", "No recibí suficiente información"].includes(response.claridad_informacion) ||
       ["Regular", "Mala"].includes(response.atencion_contratacion) ||
       ["Regular", "Complicado", "Tardado"].includes(response.agendamiento_instalacion) ||
-      ["Regular", "Mala"].includes(response.calificacion_instalacion)
+      ["Regular", "Mala"].includes(response.calificacion_instalacion) ||
+      [
+        "Sí, pero me quedaron algunas dudas",
+        "Me entregaron información parcial",
+        "No me entregaron esa información",
+      ].includes(response.informacion_post_instalacion)
     );
   }
 

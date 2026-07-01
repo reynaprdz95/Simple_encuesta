@@ -14,6 +14,7 @@ const INSTALLATION_HEADERS = [
   "atencion_contratacion",
   "agendamiento_instalacion",
   "calificacion_instalacion",
+  "informacion_post_instalacion",
   "comentario_mejora",
   "requiere_seguimiento",
   "user_agent",
